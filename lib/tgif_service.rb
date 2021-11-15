@@ -63,17 +63,15 @@ class TgifService < Sinatra::Base
     erb :help
   end
 
-  #TODO
+  post '/delete-all' do
+    response = params['user_id']
 
-  # post '/delete-all' do
-  #   response = params['user_id']
-
-  #   if response == ENV['AUTH_DELETE_ALL']
-  #     delete_message
-  #   else
-  #     '*You are not authorised to delete tgifs*'
-  #   end
-  # end
+    if response == ENV['AUTH_DELETE_ALL']
+      delete_message
+    else
+      '*You are not authorised to delete tgifs*'
+    end
+  end
 
   post '/delete-tgif' do
     team_name = params['text']
